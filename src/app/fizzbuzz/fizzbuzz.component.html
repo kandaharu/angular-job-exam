@@ -1,8 +1,11 @@
 <div>
   <label>start:
-    <input [(ngModel)]="from.value" placeholder="start">
+    <input [(ngModel)]="counter.from" placeholder="start">
   </label>
   <label>end:
-    <input [(ngModel)]="to.value" placeholder="end">
+    <input [(ngModel)]="counter.to" placeholder="end">
   </label>
 </div>
+
+<button class="next" (click)="next()">next</button>
+<button class="reset" (click)="reset()">reset</button>

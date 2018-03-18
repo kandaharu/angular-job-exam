@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Counter } from '../counter';
 import { CounterService } from '../counter.service';
+import { ResultService } from '../result.service';
 
 @Component({
   selector: 'app-fizzbuzz',
@@ -8,13 +9,20 @@ import { CounterService } from '../counter.service';
   styleUrls: ['./fizzbuzz.component.css']
 })
 export class FizzbuzzComponent implements OnInit {
-  from: Counter;
-  to: Counter;
+  counter: Counter;
 
-  constructor(private counterService: CounterService) { }
+  constructor(private counterService: CounterService, private resultService: ResultService) { }
 
   ngOnInit() {
-    this.from = this.counterService.getFrom();
-    this.to = this.counterService.getTo();
+    this.counter = this.counterService.initialize();
+  }
+
+  next() {
+    this.counter.next();
+    this.resultService.setResult();
+  }
+
+  reset() {
+    this.counter.reset();
   }
 }

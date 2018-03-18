@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Counter } from './counter';
+import { ResultService } from './result.service';
 
 @Injectable()
 export class CounterService {
 
-  constructor() { }
+  constructor(private resultService: ResultService) { }
 
-  getFrom(): Counter {
-    return new Counter(0);
+  initialize(): Counter {
+    return new Counter(0, 100);
   }
 
-  getTo(): Counter {
-    return new Counter(100);
+  next(): void {
   }
 }
