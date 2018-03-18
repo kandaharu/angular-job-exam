@@ -1,11 +1,29 @@
-<div>
-  <label>start:
-    <input type="number" [(ngModel)]="counterService.from" placeholder="start">
-  </label>
-  <label>end:
-    <input type="number" [(ngModel)]="counterService.to" placeholder="end">
-  </label>
-</div>
+<div class="row">
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label for="from" class="col-sm-3 control-label">start</label>
+      <div class="col-sm-6">
+        <input type="number" id="from" class="form-control"
+          [(ngModel)]="counterService.from"
+          placeholder="Please input number"
+          required>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+    <div class="form-group">
+      <label for="to" class="col-sm-3 control-label">end</label>
+      <div class="col-sm-6">
+        <input type="number" id="to" class="form-control"
+          [(ngModel)]="counterService.to"
+          placeholder="Please input number"
+          required>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
 
-<button class="next" (click)="next()">next</button>
-<button class="reset" (click)="reset()">reset</button>
+    <div class="col-sm-3 col-sm-offset-9">
+      <button class="btn btn-primary next" (click)="next()">next</button>
+      <button class="btn btn-danger reset" (click)="reset()">reset</button>
+    </div>
+  </div>
+</div>

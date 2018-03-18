@@ -1,3 +1,9 @@
-<div *ngIf="resultService.result.length">
-  {{resultService.result}}
+
+<div *ngIf="resultService.result.length" class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8 jumbotron">
+    <h2>result</h2>
+    {{resultService.result}}
+  </div>
+  <div class="col-sm-2"></div>
 </div>
