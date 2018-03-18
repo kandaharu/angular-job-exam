@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ResultService {
-  constructor() { }
+  result: String = '';
 
-  getResult(): String {
-    return null;
+  constructor() {
+    this.initialize();
   }
 
-  setResult(): String {
-    return null;
+  initialize(): void {
+    this.result = 'start';
+  }
+
+  set(result: String): void {
+    this.result = result;
   }
 }

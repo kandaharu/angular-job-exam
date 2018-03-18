@@ -7,10 +7,8 @@ import { ResultService } from '../result.service';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-
-  constructor(private resultService: ResultService) { }
+  constructor(public resultService: ResultService) { }
 
   ngOnInit() {
-    this.resultService.getResult();
   }
 }

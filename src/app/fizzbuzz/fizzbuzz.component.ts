@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Counter } from '../counter';
+import { Component, OnInit, Input } from '@angular/core';
 import { CounterService } from '../counter.service';
 import { ResultService } from '../result.service';
 
@@ -9,20 +8,18 @@ import { ResultService } from '../result.service';
   styleUrls: ['./fizzbuzz.component.css']
 })
 export class FizzbuzzComponent implements OnInit {
-  counter: Counter;
-
-  constructor(private counterService: CounterService, private resultService: ResultService) { }
+  constructor(public counterService: CounterService, private resultService: ResultService) { }
 
   ngOnInit() {
-    this.counter = this.counterService.initialize();
   }
 
   next() {
-    this.counter.next();
-    this.resultService.setResult();
+    this.counterService.next();
+    this.resultService.set(this.counterService.fizzbuzz());
   }
 
   reset() {
-    this.counter.reset();
+    this.counterService.reset();
+    this.resultService.initialize();
   }
 }
