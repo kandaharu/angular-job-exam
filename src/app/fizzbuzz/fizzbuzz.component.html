@@ -3,22 +3,34 @@
     <div class="form-group">
       <label for="from" class="col-sm-3 control-label">start</label>
       <div class="col-sm-6">
-        <input type="number" id="from" class="form-control"
+        <input type="number" id="from" name="from"
+          class="form-control"
           [(ngModel)]="counterService.from"
           placeholder="Please input number"
-          required>
+          required
+          #from="ngModel">
       </div>
-      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+        <div *ngIf="from.invalid && (from.dirty || from.touched)">
+          <div *ngIf="from.errors.required" class="badge">Start is required</div>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="to" class="col-sm-3 control-label">end</label>
       <div class="col-sm-6">
-        <input type="number" id="to" class="form-control"
+        <input type="number" id="to" name="to"
+          class="form-control"
           [(ngModel)]="counterService.to"
           placeholder="Please input number"
-          required>
+          required
+          #to="ngModel">
       </div>
-      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+        <div *ngIf="to.invalid && (to.dirty || to.touched)">
+          <div *ngIf="to.errors.required" class="badge">End is required</div>
+        </div>
+      </div>
     </div>
 
     <div class="col-sm-3 col-sm-offset-9">
