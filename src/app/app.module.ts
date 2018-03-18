@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { FizzbuzzComponent } from './fizzbuzz/fizzbuzz.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FizzbuzzComponent
   ],
   imports: [
     BrowserModule
