@@ -31,7 +31,7 @@ export class CounterService {
 
     let result = '';
     if (this.current % 3 === 0) { result = 'fizz'; }
-    if (this.current % 5 === 0) { result = `${result}bazz`; }
+    if (this.current % 5 === 0) { result = `${result}buzz`; }
     if (result.length === 0)    { result = this.current.toString(); }
     return result;
   }
