@@ -46,4 +46,15 @@ describe ('CounterService', () => {
       });
     });
   });
+
+  describe ('#reset', () => {
+    beforeEach(() => {
+      service.next();
+    });
+
+    it('current shouod set "nil"', () => {
+      service.reset();
+      expect(service.current).toBeNull();
+    });
+  });
 });
