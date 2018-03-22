@@ -12,7 +12,7 @@ export class ResultService {
     this.result = 'start';
   }
 
-  set(result: String): void {
-    this.result = result;
+  set(message: String): void {
+    this.result = message;
   }
 }
