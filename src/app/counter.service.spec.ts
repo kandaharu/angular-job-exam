@@ -14,6 +14,18 @@ describe ('CounterService', () => {
     expect(service).toBeTruthy();
   }));
 
+  describe ('#constructor', () => {
+    it ('this.from should be 0', () => {
+      expect(service.from).toBe(0);
+    });
+    it ('this.to should be 100', () => {
+      expect(service.to).toBe(100);
+    });
+    it ('this.current should be undefined', () => {
+      expect(service.current).toBeUndefined();
+    });
+  });
+
   describe ('#next', () => {
     let prev: number;
 
