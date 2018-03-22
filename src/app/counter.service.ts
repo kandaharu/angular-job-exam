@@ -13,7 +13,7 @@ export class CounterService {
   }
 
   next(): void {
-    if ((this.current === null) || (this.current === undefined)) {
+    if ((this.current === undefined) || (this.current === null)) {
       this.current = this.from;
     } else if (this.current < this.to) {
       this.current += 1;
@@ -23,7 +23,7 @@ export class CounterService {
   }
 
   reset(): void {
-    this.current = null;
+    this.current = undefined;
   }
 
   fizzbuzz(): String {

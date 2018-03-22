@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { CounterService } from './counter.service';
 
 describe ('CounterService', () => {
@@ -14,7 +13,7 @@ describe ('CounterService', () => {
     expect(service).toBeTruthy();
   }));
 
-  describe ('#constructor', () => {
+  describe ('#constructor()', () => {
     it ('this.from should be 0', () => {
       expect(service.from).toBe(0);
     });
@@ -26,12 +25,12 @@ describe ('CounterService', () => {
     });
   });
 
-  describe ('#next', () => {
+  describe ('#next()', () => {
     let prev: number;
 
     describe ('when execute the method once', () => {
       beforeEach(() => { service.next(); });
-      it ('this.current should set 0', () => {
+      it ('this.current should be 0', () => {
         expect(service.current).toBe(0);
       });
     });
@@ -42,7 +41,7 @@ describe ('CounterService', () => {
         prev = service.current;
         service.next();
       });
-      it ('this.current should set +1 value', () => {
+      it ('this.current should be +1 value', () => {
         expect(service.current).toBe(prev + 1);
       });
     });
@@ -53,21 +52,21 @@ describe ('CounterService', () => {
         prev = service.current;
         service.next();
       });
-      it ('this.current should set this.to value', () => {
+      it ('this.current should be this.to value', () => {
         expect(service.current).toBe(prev);
       });
     });
   });
 
-  describe ('#reset', () => {
+  describe ('#reset()', () => {
     beforeEach(() => { service.next(); });
-    it('this.current shouod set nil', () => {
+    it('this.current shouod be undefined', () => {
       service.reset();
-      expect(service.current).toBeNull();
+      expect(service.current).toBeUndefined();
     });
   });
 
-  describe ('#fizzbuzz', () => {
+  describe ('#fizzbuzz()', () => {
     describe ('when this.current value is over this.to value', () => {
       beforeEach(() => { service.current = service.to; });
       it ('should return "end"', () => {
