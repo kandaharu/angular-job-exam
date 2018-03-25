@@ -9,6 +9,5 @@ import { ResultService } from '../result.service';
 export class ResultComponent implements OnInit {
   constructor(public resultService: ResultService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { FizzbuzzComponent } from './fizzbuzz.component';
+import { CounterService } from '../counter.service';
+import { ResultService } from '../result.service';
 
 describe('FizzbuzzComponent', () => {
   let component: FizzbuzzComponent;
@@ -8,7 +11,12 @@ describe('FizzbuzzComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FizzbuzzComponent ]
+      imports: [ FormsModule ],
+      declarations: [ FizzbuzzComponent ],
+      providers: [
+        { provide: CounterService, useClass: CounterService },
+        { provide: ResultService, useClass: ResultService },
+      ]
     })
     .compileComponents();
   }));

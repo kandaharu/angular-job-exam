@@ -1,14 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { ResultComponent } from './result.component';
+import { ResultService } from '../result.service';
 
-describe('ResultComponent', () => {
+describe ('ResultComponent', () => {
   let component: ResultComponent;
   let fixture: ComponentFixture<ResultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultComponent ]
+      imports: [ FormsModule ],
+      declarations: [ ResultComponent ],
+      providers: [
+        { provide: ResultService, useClass: ResultService },
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +25,7 @@ describe('ResultComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it ('should create', () => {
     expect(component).toBeTruthy();
   });
 });

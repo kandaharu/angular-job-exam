@@ -10,8 +10,7 @@ import { ResultService } from '../result.service';
 export class FizzbuzzComponent implements OnInit {
   constructor(public counterService: CounterService, private resultService: ResultService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   next() {
     this.counterService.next();
