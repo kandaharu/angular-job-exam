@@ -1,32 +1,34 @@
-<div class="row">
-  <div class="form-horizontal">
-    <div class="form-group">
-      <label for="from" class="col-sm-3 control-label">start</label>
+<div id="fizzbuzz" class="row">
+  <div id="fizzbuzz-form" class="form-horizontal">
+    <div id="fizzbuzz-form__from" class="form-group">
+      <label for="fizzbuzz-form__from__input" class="col-sm-3 control-label">start</label>
       <div class="col-sm-6">
-        <input type="number" id="from" name="from"
+        <input type="number" id="fizzbuzz-form__from__input"
+          name="from"
           class="form-control"
           [(ngModel)]="counterService.from"
           placeholder="Please input number"
           required
           #from="ngModel">
       </div>
-      <div class="col-sm-3">
+      <div id="fizzbuzz-form__from__validate" class="col-sm-3">
         <div *ngIf="from.invalid && (from.dirty || from.touched)">
           <div *ngIf="from.errors.required" class="badge">Start is required</div>
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <label for="to" class="col-sm-3 control-label">end</label>
+    <div id="fizzbuzz-form__to" class="form-group">
+      <label for="fizzbuzz-form__to__input" class="col-sm-3 control-label">end</label>
       <div class="col-sm-6">
-        <input type="number" id="to" name="to"
+        <input type="number" id="fizzbuzz-form__to__input"
+          name="to"
           class="form-control"
           [(ngModel)]="counterService.to"
           placeholder="Please input number"
           required
           #to="ngModel">
       </div>
-      <div class="col-sm-3">
+      <div id="fizzbuzz-form__to__validate" class="col-sm-3">
         <div *ngIf="to.invalid && (to.dirty || to.touched)">
           <div *ngIf="to.errors.required" class="badge">End is required</div>
         </div>

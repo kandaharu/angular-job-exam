@@ -7,7 +7,7 @@ import { ResultService } from '../result.service';
 describe ('ResultComponent', () => {
   let component: ResultComponent;
   let fixture: ComponentFixture<ResultComponent>;
-  let compiled;
+  let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
