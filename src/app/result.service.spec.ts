@@ -16,6 +16,10 @@ describe ('ResultService', () => {
   }));
 
   describe ('#constructor()', () => {
+    // FIXME this.initialize を呼んでいることといったテストにしたい!!
+    it ('this.result should be "start"', () => {
+      expect(service.result).toBe('start');
+    });
   });
 
   describe ('#initialize()', () => {
