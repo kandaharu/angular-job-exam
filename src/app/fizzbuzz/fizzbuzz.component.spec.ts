@@ -13,8 +13,8 @@ describe ('FizzbuzzComponent', () => {
 
   let fromForm: HTMLInputElement;
   let toForm: HTMLInputElement;
-  let fromLabel: HTMLElement;
-  let toLabel: HTMLElement;
+  let fromLabel: HTMLLabelElement;
+  let toLabel: HTMLLabelElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -37,11 +37,11 @@ describe ('FizzbuzzComponent', () => {
 
   describe ('when initialize', () => {
     beforeEach(() => {
-      fromLabel = compiled.querySelector('#fizzbuzz-form__from label');
-      toLabel = compiled.querySelector('#fizzbuzz-form__to label');
+      fromLabel = compiled.querySelector('#fizzbuzz-form__from label') as HTMLLabelElement;
+      toLabel = compiled.querySelector('#fizzbuzz-form__to label') as HTMLLabelElement;
 
-      fromForm = (compiled.querySelector('#fizzbuzz-form__from__input') as HTMLInputElement);
-      toForm = (compiled.querySelector('#fizzbuzz-form__to__input') as HTMLInputElement);
+      fromForm = compiled.querySelector('#fizzbuzz-form__from__input') as HTMLInputElement;
+      toForm = compiled.querySelector('#fizzbuzz-form__to__input') as HTMLInputElement;
     });
     it ('should create', () => {
       expect(component).toBeTruthy();
@@ -61,6 +61,47 @@ describe ('FizzbuzzComponent', () => {
 
     it ('should render "to" input tag with default value', () => {
       expect(toForm.value).toContain(counterService.to.toString());
+    });
+  });
+
+  describe('#next', () => {
+    describe('when next is clicked once', () => {
+      beforeEach(() => { component.next(); });
+      it('current counter should render "from" value', () => {
+        expect(counterService.current).toEqual(counterService.from);
+      });
+    });
+
+    describe('when next is clicked twice', () => {
+      beforeEach(() => {
+        component.next();
+        component.next();
+      });
+      it('current counter should render "from" + 1 value', () => {
+        expect(counterService.current).toEqual(counterService.from + 1);
+      });
+    });
+
+    describe('when next is clicked over "to" value', () => {
+      beforeEach(() => {
+        counterService.to = 1;
+        component.next();
+        component.next();
+        component.next();
+      });
+      it('current counter should render "to" value', () => {
+        expect(counterService.current).toEqual(counterService.to);
+      });
+    });
+
+    describe('#reset', () => {
+      beforeEach(() => {
+        component.next();
+        component.reset();
+      });
+      it('current counter should set default value', () => {
+        expect(counterService.current).toEqual(undefined);
+      });
     });
   });
 });
