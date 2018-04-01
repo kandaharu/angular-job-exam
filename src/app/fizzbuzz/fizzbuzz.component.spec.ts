@@ -11,6 +11,11 @@ describe ('FizzbuzzComponent', () => {
   let compiled: HTMLElement;
   let counterService: CounterService;
 
+  let fromForm: HTMLInputElement;
+  let toForm: HTMLInputElement;
+  let fromLabel: HTMLElement;
+  let toLabel: HTMLElement;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule ],
@@ -31,28 +36,31 @@ describe ('FizzbuzzComponent', () => {
   }));
 
   describe ('when initialize', () => {
+    beforeEach(() => {
+      fromLabel = compiled.querySelector('#fizzbuzz-form__from label');
+      toLabel = compiled.querySelector('#fizzbuzz-form__to label');
+
+      fromForm = (compiled.querySelector('#fizzbuzz-form__from__input') as HTMLInputElement);
+      toForm = (compiled.querySelector('#fizzbuzz-form__to__input') as HTMLInputElement);
+    });
     it ('should create', () => {
       expect(component).toBeTruthy();
     });
 
     it ('should render "start" label', () => {
-      expect(compiled.querySelector('#fizzbuzz-form__from label').textContent).
-        toContain('start');
+      expect(fromLabel.textContent).toContain('start');
     });
 
     it ('should render "end" label', () => {
-      expect(compiled.querySelector('#fizzbuzz-form__to label').textContent).
-        toContain('end');
+      expect(toLabel.textContent).toContain('end');
     });
 
-    it ('should render "from" input tag and default value', () => {
-      const inputForm: HTMLInputElement = (compiled.querySelector('#fizzbuzz-form__from__input') as HTMLInputElement);
-      expect(inputForm.value).toContain(counterService.from.toString());
+    it ('should render "from" input tag with default value', () => {
+      expect(fromForm.value).toContain(counterService.from.toString());
     });
 
-    it ('should render "to" input tag and default value', () => {
-      const inputForm: HTMLInputElement = (compiled.querySelector('#fizzbuzz-form__to__input') as HTMLInputElement);
-      expect(inputForm.value).toContain(counterService.to.toString());
+    it ('should render "to" input tag with default value', () => {
+      expect(toForm.value).toContain(counterService.to.toString());
     });
   });
 });
