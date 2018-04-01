@@ -55,8 +55,7 @@ describe ('ResultComponent', () => {
     });
 
     it ('should render changed result', async(() => {
-      expect(compiled.querySelector('#result').textContent).toContain(resultService.result);
+      expect(compiled.querySelector('#result').textContent).toEqual(resultService.result);
     }));
   });
-
 });
